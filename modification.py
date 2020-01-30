@@ -14,6 +14,8 @@ def modification_plante_bdd(mycursor, mydb):
     if choix_champ == "P":
         champ = "prix"
     nouvelle_data = input("Entrez la nouvelle valeur à affecter : ")
+    if not isinstance(nouvelle_data, int):
+        nouvelle_data = '\'' + nouvelle_data + '\''
     commande = str("UPDATE plante SET " + champ + " = " + nouvelle_data + " WHERE nom = " + "\"" + choix_plante + "\"")
     mycursor.execute(commande)
     mydb.commit()
