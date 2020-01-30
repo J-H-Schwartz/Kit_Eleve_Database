@@ -1,5 +1,6 @@
 import mysql.connector
-from insert import modification_plante_bdd as mod
+from modification import modification_plante_bdd as mod
+from insert import insertion_nouvelle_ligne as insert
 
 mydb = mysql.connector.connect(
   host="localhost",
@@ -16,6 +17,7 @@ for i in myresult:
     print(i)
 
 mod(mycursor, mydb)
+insert(mycursor, mydb)
 
 mycursor = mydb.cursor()
 mycursor.execute("SELECT * FROM plante")

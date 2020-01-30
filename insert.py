@@ -1,21 +1,14 @@
+def insertion_nouvelle_ligne(mycursor, mydb):
 
-# Modifier data dans la BDD
-def modification_plante_bdd(mycursor, mydb):
+    id_nouvelle_plante = input("Entrez l'id de la nouvelle plante : ")
+    nouvelle_plante = input("Entrez le nom de la plante que vous souhaitez ajouter : ")
+    indication_nouvelle_plante = input("Entrez l'indication de la plante : ")
+    partie_utilisee_nouvelle_plante = input("Entrez la partie de la plante utilisée : ")
+    prix_nouvelle_plante = input("Entrez le prix de la nouvelle plante : ")
 
-    choix_plante = input("Quelle plante souhaitez-vous modifier ? : ")
-    champ = ""
-    choix_champ = input("Que souhaitez vous modifier ? (N)om, (I)ndication, Partie (U)tilisée, (P)rix : ").upper()
-    if choix_champ == "N":
-        champ = "nom"
-    if choix_champ == "I":
-        champ = "indication"
-    if choix_champ == "U":
-        champ = "partie_utilisee"
-    if choix_champ == "P":
-        champ = "prix"
-    nouvelle_data = input("Entrez la nouvelle valeur à affecter : ")
-    commande = str("UPDATE plante SET " + champ + " = " + nouvelle_data + " WHERE nom = " + "\"" + choix_plante + "\"")
-    mycursor.execute(commande)
+    mycursor.execute("INSERT INTO plante (id, nom, indication, partie_utilisee, prix) "
+                     "VALUES ('{}', '{}', '{}', '{}', '{}')".format(id_nouvelle_plante, nouvelle_plante,
+                                                                    indication_nouvelle_plante,
+                                                                    partie_utilisee_nouvelle_plante,
+                                                                    prix_nouvelle_plante))
     mydb.commit()
-
-
