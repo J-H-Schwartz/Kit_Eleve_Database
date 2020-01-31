@@ -5,7 +5,7 @@ def search_bdd(mycursor, mydb):
     if choix == 'N':
         search = input("Entrez-votre recherche : ")
         search = '\'' + search + '\''
-        mycursor.execute("SELECT * FROM plante WHERE INSTR(nom, {})".format(search))
+        mycursor.execute("SELECT * FROM plante WHERE INSTR(upper(nom), {})".format(search.upper()))
         myresult = mycursor.fetchall()
     elif choix == 'I':
         search = input("Entrez tout ou partie de l'id de la plante recherchée : ")
