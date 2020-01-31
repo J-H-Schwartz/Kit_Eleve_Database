@@ -1,3 +1,4 @@
+# Delete row from database
 def delete_ligne_bdd(mycursor, mydb):
 
     nom_entree_a_supprimer = input("Entrez le nom ou l'id d'une plante à supprimer du tableau :")

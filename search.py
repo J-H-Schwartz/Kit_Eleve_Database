@@ -1,4 +1,4 @@
-# Read Database
+# Search in Database
 def search_bdd(mycursor, mydb):
     while True:
         mycursor2 = mycursor

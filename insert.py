@@ -1,3 +1,4 @@
+# Add row and data to Database
 def insertion_nouvelle_ligne(mycursor, mydb):
 
     id_nouvelle_plante = input("Entrez l'id de la nouvelle plante : ")
