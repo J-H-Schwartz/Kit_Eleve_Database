@@ -4,6 +4,7 @@ from insert import insertion_nouvelle_ligne as insert
 from read import read_bdd
 from delete import delete_ligne_bdd
 from search import *
+from average_price import *
 
 mydb = mysql.connector.connect(
     host="localhost",
@@ -17,7 +18,7 @@ mycursor = mydb.cursor()
 def main():
     while True:
         choix = input("Que souhaitez-vous-faire ? (A)fficher BDD, (I)nserer une ligne, (M)odifier ligne, (S)upprimer,"
-                      " (R)echercher, (Q)uitter").upper()
+                      " (R)echercher, Moyenne des (P)rix, (Q)uitter").upper()
         if choix == 'Q':
             break
         elif choix == 'A':
@@ -30,6 +31,8 @@ def main():
             delete_ligne_bdd(mycursor, mydb)
         elif choix == 'R':
             search_bdd(mycursor, mydb)
+        elif choix == 'P':
+            average_price(mycursor, mydb)
         else:
             print("Entrée non reconnue. Recommencez.")
 
