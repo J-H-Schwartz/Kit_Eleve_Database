@@ -17,7 +17,7 @@ mycursor = mydb.cursor()
 def main():
     while True:
         choix = input("Que souhaitez-vous-faire ? (A)fficher BDD, (I)nserer une ligne, (M)odifier ligne, (S)upprimer,"
-                      "(R)echercher, (Q)uitter").upper()
+                      " (R)echercher, (Q)uitter").upper()
         if choix == 'Q':
             break
         elif choix == 'A':
